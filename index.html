@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="theme-btn" onclick="changeTheme()">THEME</button>
+    <div class="container">
+        <h1>Study Tracker</h1>
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'subject1')">Subject 1</button>
+            <button class="tab-button" onclick="openTab(event, 'subject2')">Subject 2</button>
+            <button class="tab-button" onclick="openTab(event, 'addSubject')">+ Add Subject</button>
+        </div>
+
+        <div id="subject1" class="tab-content active">
+            <h2>Topics</h2>
+            <table id="topicTable1">
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Complete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added dynamically here -->
+                </tbody>
+            </table>
+            <button onclick="addTopic('topicTable1')">Add Topic</button>
+
+            <h2>Important Notes</h2>
+            <div id="flashcardContainer1" class="flashcard-container">
+                <!-- Flashcards will be added dynamically here -->
+            </div>
+            <button onclick="addFlashcard('flashcardContainer1')">Add Flashcard</button>
+        </div>
+
+        <div id="subject2" class="tab-content">
+            <h2>Topics</h2>
+            <table id="topicTable2">
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Complete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added dynamically here -->
+                </tbody>
+            </table>
+            <button onclick="addTopic('topicTable2')">Add Topic</button>
+
+            <h2>Important Notes</h2>
+            <div id="flashcardContainer2" class="flashcard-container">
+                <!-- Flashcards will be added dynamically here -->
+            </div>
+            <button onclick="addFlashcard('flashcardContainer2')">Add Flashcard</button>
+        </div>
+
+        <div id="addSubject" class="tab-content">
+            <h2>Add New Subject</h2>
+            <input type="text" id="newSubjectName" placeholder="Enter Subject Name">
+            <button onclick="addSubject()">Add Subject</button>
+        </div>
+    </div>
+    <footer>
+        <p> Created for a purpose by <a href="https://github.com/Abdul-Mannan-Codes" class="creator-name">Sayyed Abdul Mannan</a> with <a href="https://chatgpt.com/" class="creator-name">ChatGPT</span> </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color1:#f0f4f8;
+    --color2:#333;
+    --color3:#fff;
+    --color4:#007bff;
+    --color5:#0056b3;
+    --color6:#f9f9f9;
+    --color7:white;
+    --color8:#ccc;
+    --color9:#555;
+    --colorA:#c82333;
+    --colorB:#dc3545;
+    --colorC:#aaa;
+}
+/* Applying a modern, clean font family */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color1);
+    color: var(--color2);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container styles */
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: var(--color3);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: var(--color4);
+}
+
+h2 {
+    font-size: 2em;
+    color: var(--color5);
+}
+
+/* Tab styles */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: var(--color4);
+    color: var(--color7);
+    border: none;
+    padding: 12px 24px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: var(--color5);
+}
+
+.tab-button:hover {
+    background-color: #0069d9;
+}
+
+/* Tab content styles */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid var(--color8);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    font-size: 1em;
+}
+
+th {
+    background-color: var(--color4);
+    color: var(--color7);
+}
+
+/* Flashcard container and card styles */
+.flashcard-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.flashcard {
+    background-color: var(--color6);
+    border: 1px solid var(--color8);
+    border-radius: 10px;
+    padding: 15px;
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.flashcard:hover {
+    transform: translateY(-5px);
+}
+
+.flashcard h3 {
+    font-size: 1.3em;
+    color: var(--color2);
+    margin-bottom: 10px;
+}
+
+.flashcard p {
+    font-size: 1em;
+    color: var(--color9);
+}
+
+/* Button styles */
+button {
+    background-color: var(--color4);
+    color: var(--color7);
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--color5);
+}
+
+/* Input field styles */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--color8);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Placeholder styling */
+::placeholder {
+    color: var(--colorC);
+    font-size: 0.9em;
+}
+button {
+    background-color: var(--color4);
+    color: var(--color7);
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: var(--color5);
+}
+
+button.delete {
+    background-color: var(--colorB);
+    margin-top: 0;
+}
+
+button.delete:hover {
+    background-color: var(--colorA);
+}
+
+table button {
+    padding: 4px 8px;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.flashcard button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 1em;
+    border-radius: 5px;
+    background-color: var(--colorB);
+    color: var(--color7);
+    transition: background-color 0.3s ease;
+}
+
+.flashcard button:hover {
+    background-color: var(--colorA);
+}
+footer{
+    .creator-name{
+        color:var(--colorB);
+        font-weight:600;
+        text-decoration: none;
+    }
+    font-size:12px;
+    text-align:center;
+    margin-top:50px;
+}
