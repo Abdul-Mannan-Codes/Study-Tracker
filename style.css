@@ -251,3 +251,58 @@ footer{
     text-align:center;
     margin-top:50px;
 }
+/* Existing styles... */
+
+@media (max-width: 768px) {
+    /* Container padding adjustment */
+    .container {
+        padding: 15px;
+    }
+
+    /* Adjusting font sizes for mobile */
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    th, td, input[type="text"], button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .tab-button {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    /* Flashcard styles for mobile */
+    .flashcard-container {
+        flex-direction: column;
+    }
+
+    .flashcard {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .flashcard h3 {
+        font-size: 1.2em;
+    }
+
+    .flashcard p {
+        font-size: 0.9em;
+    }
+
+    /* Adjusting button sizes for better touch usability */
+    button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    table, th, td {
+        font-size: 0.9em;
+    }
+}
