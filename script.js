@@ -11,6 +11,10 @@ function openTab(event, tabId) {
     document.getElementById(tabId).classList.add('active');
     event.currentTarget.classList.add('active');
 }
+function proceed(){
+    var warningBox = document.querySelector("#warning");
+    warningBox.style.display = "none";
+}
 function darkTheme(){
     root.style.setProperty('--color1', '#333');
     root.style.setProperty('--color2', '#f0f4f8');

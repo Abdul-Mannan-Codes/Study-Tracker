@@ -26,7 +26,25 @@ body {
     line-height: 1.6;
     padding: 20px;
 }
-
+#warning{
+    position:fixed;
+    height:200px;
+    width: 500px;
+    color:red;
+    font-size:20px;
+    text-align: center;
+    border:none;
+    background-color: #fff;
+    top:30%;
+    left:30%;
+    box-shadow:0px 0px 50px red;
+    button{
+        background-color: #ff7777;
+    }
+    button:hover{
+        background-color: #f12525;
+    }
+}
 /* Container styles */
 .container {
     max-width: 900px;
