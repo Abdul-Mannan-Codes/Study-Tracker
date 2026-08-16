@@ -1,308 +1,541 @@
-/* Resetting default margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ---------- Reset ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ---------- Theme tokens ---------- */
+:root,
+[data-theme="paper"] {
+    --bg: #FAF6EE;
+    --surface: #FFFFFF;
+    --surface-alt: #F1EADA;
+    --ink: #2B2A28;
+    --ink-soft: #746C5E;
+    --border: #E4DBC6;
+    --accent: #3E6259;
+    --accent-strong: #2C4941;
+    --accent-2: #C9482B;
+    --accent-2-strong: #A83A21;
+    --highlight: #F2C14E;
+    --shadow: rgba(43, 42, 40, 0.10);
 }
-:root{
-    --color1:#f0f4f8;
-    --color2:#333;
-    --color3:#fff;
-    --color4:#007bff;
-    --color5:#0056b3;
-    --color6:#f9f9f9;
-    --color7:white;
-    --color8:#ccc;
-    --color9:#555;
-    --colorA:#c82333;
-    --colorB:#dc3545;
-    --colorC:#aaa;
+
+[data-theme="dark"] {
+    --bg: #171512;
+    --surface: #211E1A;
+    --surface-alt: #2A2620;
+    --ink: #EDE7DB;
+    --ink-soft: #A89F8E;
+    --border: #3A342B;
+    --accent: #6FBFA3;
+    --accent-strong: #8FD4BB;
+    --accent-2: #E0714A;
+    --accent-2-strong: #EB8B69;
+    --highlight: #F2C14E;
+    --shadow: rgba(0, 0, 0, 0.35);
 }
-/* Applying a modern, clean font family */
+
+[data-theme="ocean"] {
+    --bg: #EAF2F8;
+    --surface: #FFFFFF;
+    --surface-alt: #DCEBF3;
+    --ink: #1B2B34;
+    --ink-soft: #517080;
+    --border: #C7DEEA;
+    --accent: #1F6F8B;
+    --accent-strong: #175570;
+    --accent-2: #D64550;
+    --accent-2-strong: #B7333D;
+    --highlight: #7FC8A9;
+    --shadow: rgba(27, 43, 52, 0.12);
+}
+
+[data-theme="rose"] {
+    --bg: #FBEFF2;
+    --surface: #FFFFFF;
+    --surface-alt: #F6DEE4;
+    --ink: #3A2E32;
+    --ink-soft: #8A6E76;
+    --border: #EFD2DA;
+    --accent: #C4577A;
+    --accent-strong: #A83F60;
+    --accent-2: #6B4C57;
+    --accent-2-strong: #513740;
+    --highlight: #F2B5C4;
+    --shadow: rgba(58, 46, 50, 0.12);
+}
+
+/* ---------- Base ---------- */
+html { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--color1);
-    color: var(--color2);
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--ink);
     line-height: 1.6;
-    padding: 20px;
-}
-#warning{
-    position:fixed;
-    height:200px;
-    width: 500px;
-    color:red;
-    font-size:20px;
-    text-align: center;
-    border:none;
-    background-color: #fff;
-    top:30%;
-    left:30%;
-    box-shadow:0px 0px 50px red;
-    button{
-        background-color: #ff7777;
-    }
-    button:hover{
-        background-color: #f12525;
-    }
-}
-/* Container styles */
-.container {
-    max-width: 900px;
-    margin: auto;
-    background: var(--color3);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Heading styles */
-h1, h2 {
-    text-align: center;
+h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ---------- Warning ---------- */
+#warning {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 18, 15, 0.55);
+    z-index: 100;
+    padding: 20px;
+}
+
+.warning-card {
+    background: var(--surface);
+    color: var(--ink);
+    max-width: 440px;
+    width: 100%;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px var(--shadow);
+    text-align: left;
+}
+
+.warning-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+}
+
+.warning-card p {
+    color: var(--ink-soft);
+    font-size: 0.95em;
     margin-bottom: 20px;
-    font-weight: 500;
 }
 
-h1 {
-    font-size: 2.5em;
-    color: var(--color4);
+/* ---------- Topbar ---------- */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 28px;
+    flex-wrap: wrap;
 }
 
-h2 {
-    font-size: 2em;
-    color: var(--color5);
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-/* Tab styles */
+.brand-mark {
+    font-size: 1.8em;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: var(--surface);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.brand-text h1 {
+    font-size: 1.5em;
+    color: var(--ink);
+    line-height: 1.1;
+}
+
+.tagline {
+    font-size: 0.85em;
+    color: var(--ink-soft);
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.theme-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.92em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-primary { background: var(--accent); color: var(--surface); }
+.btn-primary:hover { background: var(--accent-strong); }
+
+.btn-ghost { background: var(--surface-alt); color: var(--ink); }
+.btn-ghost:hover { background: var(--border); }
+
+.btn-text { background: transparent; color: var(--ink-soft); padding: 10px 14px; }
+.btn-text:hover { color: var(--ink); }
+
+.btn-danger { background: var(--accent-2); color: var(--surface); }
+.btn-danger:hover { background: var(--accent-2-strong); }
+
+.btn-sm { padding: 6px 12px; font-size: 0.82em; }
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--ink-soft);
+    cursor: pointer;
+    font-size: 1em;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+.icon-btn:hover { background: var(--surface-alt); color: var(--ink); }
+
+/* ---------- Container ---------- */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px 28px 60px;
+}
+
+/* ---------- Tabs (notebook dividers) ---------- */
 .tabs {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 10px 4px 0;
+    scrollbar-width: thin;
 }
 
-.tab-button {
-    background-color: var(--color4);
-    color: var(--color7);
-    border: none;
-    padding: 12px 24px;
-    margin: 0 5px;
+.tab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface-alt);
+    color: var(--ink-soft);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    padding: 10px 16px;
+    border-radius: 10px 10px 0 0;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 0.95em;
+    flex-shrink: 0;
 }
 
-.tab-button.active {
-    background-color: var(--color5);
+.tab.active {
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: 0 -2px 8px var(--shadow);
 }
 
-.tab-button:hover {
-    background-color: #0069d9;
+.tab .progress-ring {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: conic-gradient(var(--accent) calc(var(--pct) * 1%), var(--border) 0);
+    display: grid;
+    place-items: center;
 }
 
-/* Tab content styles */
-.tab-content {
+.tab .progress-ring::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--surface-alt);
+}
+
+.tab.active .progress-ring::after { background: var(--surface); }
+
+.tab-name {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-add {
+    background: transparent;
+    border: 1px dashed var(--border);
+    color: var(--ink-soft);
+}
+.tab-add:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ---------- Panel ---------- */
+.panel {
     display: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0 10px 10px 10px;
+    padding: 26px;
+    box-shadow: 0 4px 20px var(--shadow);
 }
 
-.tab-content.active {
-    display: block;
+.panel.active { display: block; }
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
 }
 
-/* Table styles */
+.panel-header h2 {
+    font-size: 1.5em;
+    color: var(--ink);
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.panel-header-actions { display: flex; gap: 8px; }
+
+.progress-summary {
+    color: var(--ink-soft);
+    font-size: 0.88em;
+    margin-bottom: 22px;
+}
+
+.section-title {
+    font-size: 1.15em;
+    color: var(--accent-strong);
+    text-align: left;
+    margin: 26px 0 12px;
+}
+
+/* ---------- Topics table ---------- */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-table, th, td {
-    border: 1px solid var(--color8);
+    margin-bottom: 12px;
 }
 
 th, td {
-    padding: 15px;
+    padding: 10px 12px;
     text-align: left;
-    font-size: 1em;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95em;
 }
 
 th {
-    background-color: var(--color4);
-    color: var(--color7);
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
-/* Flashcard container and card styles */
+td.col-action, th.col-action { width: 40px; text-align: right; }
+td.col-complete, th.col-complete { width: 90px; }
+
+.topic-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    color: var(--ink);
+    padding: 6px 4px;
+    border-radius: 6px;
+}
+.topic-input:hover, .topic-input:focus { background: var(--surface-alt); }
+
+tr.complete .topic-input { color: var(--ink-soft); text-decoration: line-through; }
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.empty-row td {
+    color: var(--ink-soft);
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ---------- Flashcards ---------- */
 .flashcard-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
 }
 
 .flashcard {
-    background-color: var(--color6);
-    border: 1px solid var(--color8);
-    border-radius: 10px;
-    padding: 15px;
-    width: 30%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
 }
 
 .flashcard:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px var(--shadow);
 }
 
 .flashcard h3 {
-    font-size: 1.3em;
-    color: var(--color2);
-    margin-bottom: 10px;
+    font-size: 1.05em;
+    color: var(--ink);
+    margin-bottom: 8px;
+    padding-right: 20px;
 }
 
 .flashcard p {
-    font-size: 1em;
-    color: var(--color9);
+    font-size: 0.9em;
+    color: var(--ink-soft);
+    white-space: pre-wrap;
 }
 
-/* Button styles */
-button {
-    background-color: var(--color4);
-    color: var(--color7);
-    border: none;
-    padding: 12px 24px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
+.flashcard .card-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
-button:hover {
-    background-color: var(--color5);
+.empty-hint {
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 0.9em;
+    margin-bottom: 14px;
 }
 
-/* Input field styles */
-input[type="text"] {
+/* ---------- Empty state ---------- */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--ink-soft);
+}
+.empty-illustration { font-size: 3em; margin-bottom: 12px; }
+.empty-state h2 { color: var(--ink); margin-bottom: 8px; }
+.empty-state p { margin-bottom: 20px; }
+
+/* ---------- Modals ---------- */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 18, 15, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 20px;
+}
+
+.modal-backdrop[hidden] {
+    display: none;
+}
+
+.modal {
+    background: var(--surface);
+    color: var(--ink);
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid var(--color8);
-    border-radius: 5px;
-    font-size: 1em;
+    max-width: 420px;
+    padding: 26px;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px var(--shadow);
 }
 
-/* Placeholder styling */
-::placeholder {
-    color: var(--colorC);
-    font-size: 0.9em;
-}
-button {
-    background-color: var(--color4);
-    color: var(--color7);
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-    margin-right: 10px;
-}
+.modal h3 { margin-bottom: 16px; font-size: 1.2em; }
+.modal p { color: var(--ink-soft); margin-bottom: 4px; }
 
-button:hover {
-    background-color: var(--color5);
-}
-
-button.delete {
-    background-color: var(--colorB);
-    margin-top: 0;
-}
-
-button.delete:hover {
-    background-color: var(--colorA);
-}
-
-table button {
-    padding: 4px 8px;
-    font-size: 0.9em;
-    margin: 0;
-}
-
-.flashcard button {
+.field-label {
     display: block;
+    font-size: 0.82em;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin: 14px 0 6px;
+}
+
+.modal input[type="text"], .modal textarea {
     width: 100%;
-    margin-top: 10px;
-    padding: 8px 16px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
     font-size: 1em;
-    border-radius: 5px;
-    background-color: var(--colorB);
-    color: var(--color7);
-    transition: background-color 0.3s ease;
+    background: var(--bg);
+    color: var(--ink);
+    resize: vertical;
 }
 
-.flashcard button:hover {
-    background-color: var(--colorA);
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 22px;
 }
-footer{
-    .creator-name{
-        color:var(--colorB);
-        font-weight:600;
-        text-decoration: none;
-    }
-    font-size:12px;
-    text-align:center;
-    margin-top:50px;
-}
-/* Existing styles... */
 
+/* ---------- Toast ---------- */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--bg);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    z-index: 300;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 30px 0;
+}
+footer .creator-name {
+    color: var(--accent-2);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-    /* Container padding adjustment */
-    .container {
-        padding: 15px;
-    }
-
-    /* Adjusting font sizes for mobile */
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-
-    th, td, input[type="text"], button {
-        font-size: 0.9em;
-        padding: 10px;
-    }
-
-    .tab-button {
-        font-size: 1em;
-        padding: 10px;
-    }
-
-    /* Flashcard styles for mobile */
-    .flashcard-container {
-        flex-direction: column;
-    }
-
-    .flashcard {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    .flashcard h3 {
-        font-size: 1.2em;
-    }
-
-    .flashcard p {
-        font-size: 0.9em;
-    }
-
-    /* Adjusting button sizes for better touch usability */
-    button {
-        padding: 10px 20px;
-        font-size: 1em;
-    }
-
-    table, th, td {
-        font-size: 0.9em;
-    }
+    .topbar { padding: 14px 16px; }
+    .container { padding: 10px 14px 40px; }
+    .panel { padding: 18px; }
+    .brand-text h1 { font-size: 1.25em; }
+    .tagline { display: none; }
+    .flashcard-container { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    #themeLabel { display: none; }
 }
